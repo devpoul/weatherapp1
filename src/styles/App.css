@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+/* Un reinicio de CSS. Es una forma de asegurarse de que todos los navegadores utilicen el mismo estilo
+predeterminado. */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Elimina las viñetas de la lista. */
+ul {
+  list-style: none;
+}
+
+/* Haciendo de la imagen un elemento de bloque. */
+img {
+  display: block;
+}
+
+/* Configuración de la imagen de fondo de la página. */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://wallpaperaccess.com/full/1540001.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Configuración del estilo de la tarjeta. */
+.card {
+  max-width: 500px;
+  background-color: #fff8;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Estilizando el título de la tarjeta. */
+.cardTitle {
+  grid-column: span 2;
+  text-align: center;
+  font-weight: 600;
+  font-size: 40px;
+  margin: 10px 0 20px 0;
+}
+
+/* Dar estilo a la clase cardPlace. */
+.cardPlace {
+  grid-column: span 2;
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+/* Estilizando la clase `temp` */
+.temp {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Estilo de la temperatura principal. */
+.mainTemp {
+  font-size: 50px;
+  text-align: center;
+}
+
+/* Dando a la clase card2Section una visualización de flexión, una dirección flexible de columna, un
+contenido justificado de centro, una altura de línea de 2em y un relleno izquierdo de 10px. */
+.card2Section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 2em;
+  padding-left: 10px;
+}
+
+/* Aplicar estilo a la clase `cardDescription` */
+.cardDescription {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Estilo de la clase `listInfo` */
+.listInfo {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 2em;
+}
+
+/* Dando al elemento span un peso de fuente de 600. */
+.spanItem {
+  font-weight: 600;
+}
+
+/* Estilizando el botón. */
+.cardBtn {
+  width: 150px;
+  position: relative;
+  padding: 5px 15px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: black;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.2s ease-in;
+  margin-left: 15px;
+}
+
+/* Dando al botón un efecto de desplazamiento. */
+.cardBtn:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  transition: all 0.2s ease-out;
+}
+
+.cardBtn:hover::before {
+  animation: sh02 0.5s 0s linear;
+}
+
+.cardBtn::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  transform: skewX(-20deg);
+}
+
+/* Una animación de fotogramas clave. Se utiliza para animar el botón. */
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+/* Hacer que la sombra del cuadro desaparezca cuando se hace clic en el botón. */
+.cardBtn:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
+}
+
+/* Estilizando los créditos. */
+.credits {
+  text-align: center;
+  position: relative;
+  margin-top: 2em;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  -webkit-text-stroke: 3px black;
+}
+
+/* Una consulta de los medios. Se utiliza para cambiar el estilo de los elementos cuando el tamaño de
+la pantalla es inferior a 500 px. */
+@media (max-width: 500px) {
+  .card {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .card1Section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .cardIcon {
+    width: 40vw;
+    position: relative;
+    margin-left: 40px;
+  }
+
+  .mainTemp {
+    font-size: 25px;
+  }
+
+  .cardDescription {
+    font-size: 20px;
+  }
+
+  .listInfo {
+    font-size: 15px;
+  }
+
+  .cardBtn {
+    margin-left: 45px;
+  }
+
+  .credits {
+    margin-bottom: 15px;
+  }
+}
